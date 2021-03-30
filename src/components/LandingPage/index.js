@@ -8,7 +8,7 @@ import rings from "../../images/rings.svg";
 
 import { Fade, Slide, Typography } from "@material-ui/core";
 import Places from "../Places";
-import Hotels from "../Hotels";
+import CardHotel from "../CardHotel";
 import Contact from "../Contact";
 
 const LandingPage = ({ open, setOpen }) => {
@@ -65,7 +65,7 @@ const LandingPage = ({ open, setOpen }) => {
 					<Typography align="center" variant="h5" className={classes.date}>
 						Où dormir ?
 					</Typography>
-					<Hotels />
+					<CardHotel />
 				</article>
 				<div className={classes.spaceBetweenArticle} />
 				{/*.....................CONTACT.....................*/}

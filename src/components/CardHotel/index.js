@@ -7,7 +7,7 @@ import useStyles from "../../styles/Card";
 import mairie from "../../images/jumbo.jpg";
 
 import { Typography, Paper, Grid } from "@material-ui/core";
-const Hotels = (props) => {
+const CardHotel = (props) => {
 	const classes = useStyles();
 	return (
 		<>
@@ -92,4 +92,4 @@ const Hotels = (props) => {
 	);
 };
 
-export default Hotels;
+export default CardHotel;
