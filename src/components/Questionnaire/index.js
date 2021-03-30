@@ -3,16 +3,13 @@ import PropTypes from "prop-types";
 
 // @Material UI
 
-import generalStyles from "../../styles/LandingPage";
 import useStyles from "../../styles/Questionnaire";
 
 import rings from "../../images/rings.svg";
-import { Menu as BurgerMenu } from "@material-ui/icons";
 
 import { Typography, Paper, Grid, Radio, RadioGroup, FormControlLabel, FormControl, Button } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
-const Questionnaire = (props) => {
-	const general = generalStyles();
+const Questionnaire = () => {
 	const classes = useStyles();
 	return (
 		<div>
@@ -20,7 +17,6 @@ const Questionnaire = (props) => {
 				<NavLink to="/">
 					<img src={rings} alt="rings" style={{ width: "auto" }} />
 				</NavLink>
-				<BurgerMenu className={general.burgerMenu} fontSize="large" />
 			</div>
 			<Typography align="center" variant="h6" className={classes.question}>
 				Serez-vous présent le 2 juillet 2022 ?
@@ -114,5 +110,7 @@ const Questionnaire = (props) => {
 		</div>
 	);
 };
+
+Questionnaire.propTypes = {};
 
 export default Questionnaire;
