@@ -2,24 +2,22 @@ import React from "react";
 import PropTypes from "prop-types";
 
 // @Material UI
-import { AppBar, Toolbar, Typography, CssBaseline, Container, Grid } from "@material-ui/core";
+import { CssBaseline } from "@material-ui/core";
 
 // Components
 import LandingPage from "../LandingPage";
+import Questionnaire from "../Questionnaire";
 
 // Router dom
-import { NavLink, Route, Switch } from "react-router-dom";
-
-// style
-import useStyles from "../../styles/App";
+import { Route, Switch } from "react-router-dom";
 
 const App = (props) => {
-	const classes = useStyles();
 	return (
 		<>
 			<CssBaseline />
 			<Switch>
-				<Route path="/" extact component={LandingPage} />
+				<Route path="/" exact component={LandingPage} />
+				<Route path="/rsvp" exact component={Questionnaire} />
 			</Switch>
 		</>
 	);

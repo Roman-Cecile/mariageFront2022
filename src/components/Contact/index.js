@@ -22,11 +22,17 @@ const Contact = (props) => {
 						onChange={(event) => setFields((prev) => ({ ...prev, [field]: event.target.value }))}
 						multiline={field === "message"}
 						required
+						variant={field === "message" ? "outlined" : "standard"}
+						// InputProps={{
+						// 	style: { height: field === "message" && 150 },
+						// }}
+						rows={5}
+						style={{ marginBottom: field === "email" && 16 }}
 					/>
 				))}
 				<Button
 					fullWidth
-					style={{ backgroundColor: "#edefec", marginTop: 16 }}
+					style={{ backgroundColor: "#b9c7a1", marginTop: 16 }}
 					variant="contained"
 					type="submit">
 					Envoyer
