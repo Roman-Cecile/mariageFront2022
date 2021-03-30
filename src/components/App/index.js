@@ -14,6 +14,7 @@ import { Route, Switch } from "react-router-dom";
 import { Menu as BurgerMenu } from "@material-ui/icons";
 import useStyles from "../../styles/LandingPage";
 import Drawer from "../Drawer";
+import Hotel from "../Hotel";
 
 const App = (props) => {
 	const classes = useStyles();
@@ -27,6 +28,7 @@ const App = (props) => {
 					<LandingPage open={open} setOpen={setOpen} />
 				</Route>
 				<Route path="/rsvp" exact component={Questionnaire} />
+				<Route path="/hotel" exact component={Hotel} />
 			</Switch>
 			<Drawer open={open} setOpen={setOpen} />
 		</>
