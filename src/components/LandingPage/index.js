@@ -6,19 +6,17 @@ import PropTypes from "prop-types";
 import useStyles from "../../styles/LandingPage";
 import rings from "../../images/rings.svg";
 
-import { Menu as BurgerMenu } from "@material-ui/icons";
 import { Fade, Slide, Typography } from "@material-ui/core";
 import Places from "../Places";
 import Hotels from "../Hotels";
 import Contact from "../Contact";
 
-const LandingPage = (props) => {
+const LandingPage = ({ open, setOpen }) => {
 	const classes = useStyles();
 	return (
 		<>
 			<header>
 				<div className={classes.header}>
-					<BurgerMenu className={classes.burgerMenu} fontSize="large" />
 					<div className={classes.containerTitle}>
 						{/* h3 sur pc et h4 sur mobile */}
 						<Slide direction="left" in mountOnEnter unmountOnExit timeout={1300}>
@@ -87,6 +85,11 @@ const LandingPage = (props) => {
 			</main>
 		</>
 	);
+};
+
+LandingPage.propTypes = {
+	setOpen: PropTypes.func.isRequired,
+	open: PropTypes.bool.isRequired,
 };
 
 export default LandingPage;
