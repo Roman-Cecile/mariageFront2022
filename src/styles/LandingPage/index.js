@@ -3,6 +3,17 @@ import "../../styles/App.css";
 import jumbo from "../../images/jumbo.jpg";
 
 const useStyles = makeStyles((theme) => ({
+	maxWidth: {
+		maxWidth: 1200,
+		margin: "auto",
+	},
+
+	spaceBetweenArticle: {
+		width: "100%",
+		height: 20,
+		backgroundColor: "#b9c7a1",
+		boxShadow: "inset 0px 1.4px 5px #79797987",
+	},
 	header: {
 		width: "100%",
 		height: "80vh",
@@ -51,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
 		backgroundColor: "#edefec",
 
 		position: "relative",
-		maxWidth: 1200,
+		// maxWidth: 1200,
 		margin: "auto",
 	},
 

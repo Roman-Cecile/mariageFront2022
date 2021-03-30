@@ -4,9 +4,10 @@ import PropTypes from "prop-types";
 // @Material UI
 
 import useStyles from "../../styles/LandingPage";
+import rings from "../../images/rings.svg";
 
 import { Menu as BurgerMenu } from "@material-ui/icons";
-import { Slide, Typography } from "@material-ui/core";
+import { Fade, Slide, Typography } from "@material-ui/core";
 import Places from "../Places";
 import Hotels from "../Hotels";
 import Contact from "../Contact";
@@ -28,6 +29,9 @@ const LandingPage = (props) => {
 						<Slide direction="right" in mountOnEnter unmountOnExit timeout={1500}>
 							<Typography className={classes.subTitle}>Se Marient</Typography>
 						</Slide>
+						<Fade in timeout={1600}>
+							<img src={rings} alt="rings" style={{ width: "30%" }} />
+						</Fade>
 					</div>
 				</div>
 			</header>
@@ -35,7 +39,7 @@ const LandingPage = (props) => {
 				<Typography align="center" variant="h5" className={classes.date}>
 					Le 2 juillet 2022
 				</Typography>
-				<article>
+				<article className={classes.maxWidth}>
 					<Typography paragraph align="justify" className={classes.paragraph}>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sodales nec ligula vitae pharetra.
 						Maecenas odio metus, gravida et eros vitae, semper facilisis massa. Pellentesque commodo aliquam
@@ -47,34 +51,38 @@ const LandingPage = (props) => {
 						lacinia in sapien. Suspendisse potenti.
 					</Typography>
 				</article>
-
+				<div className={classes.spaceBetweenArticle} />
 				{/*.....................PLACES.....................*/}
 				<article className={classes.containerPlaces}>
 					<Typography align="center" variant="h5" className={classes.date}>
 						Les lieux
 					</Typography>
-					<Places />
+					<div className={classes.maxWidth}>
+						<Places />
+					</div>
 				</article>
-
+				<div className={classes.spaceBetweenArticle} />
 				{/*.....................HOTELS.....................*/}
-				<article>
+				<article className={classes.maxWidth}>
 					<Typography align="center" variant="h5" className={classes.date}>
 						Où dormir ?
 					</Typography>
 					<Hotels />
 				</article>
-
+				<div className={classes.spaceBetweenArticle} />
 				{/*.....................CONTACT.....................*/}
 				<article className={classes.containerPlaces}>
 					<Typography align="center" variant="h5" className={classes.date}>
 						Nous contacter
 					</Typography>
-					<Contact />
-					<footer className={classes.footer}>
-						<Typography align="center" color="textSecondary" variant="subtitle2">
-							Fabriqué par Roman
-						</Typography>
-					</footer>
+					<div className={classes.maxWidth}>
+						<Contact />
+						<footer className={classes.footer}>
+							<Typography align="center" color="textSecondary" variant="subtitle2">
+								Fabriqué par Roman
+							</Typography>
+						</footer>
+					</div>
 				</article>
 			</main>
 		</>
