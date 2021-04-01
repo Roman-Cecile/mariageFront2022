@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 
 // Components
 import LandingPage from "../LandingPage";
-import Questionnaire from "../Questionnaire";
+import Questionnaire from "../../containers/Questionnaire";
 
 // Router dom
 import { Route, Switch } from "react-router-dom";
