@@ -1,5 +1,7 @@
 import { combineReducers } from "redux";
 
-// import cityReducer from "./city";
+import familyReducer from "./family";
 
-export default combineReducers({});
+export default combineReducers({
+	familyReducer,
+});

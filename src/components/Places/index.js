@@ -6,8 +6,7 @@ import PropTypes from "prop-types";
 import useStyles from "../../styles/Card";
 import mairie from "../../images/jumbo.jpg";
 
-import { Menu as BurgerMenu } from "@material-ui/icons";
-import { Slide, Typography, Paper, Grid } from "@material-ui/core";
+import { Typography, Paper, Grid } from "@material-ui/core";
 const Places = (props) => {
 	const classes = useStyles();
 	return (

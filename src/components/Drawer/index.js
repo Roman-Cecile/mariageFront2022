@@ -8,7 +8,7 @@ import logoDrawer from "../../images/logoDrawer.svg";
 
 import { Typography, SwipeableDrawer as DrawerComponent } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
-const Drawer = ({ setOpen, open }) => {
+const Drawer = ({ setOpen, open, isLog, axiosLogout }) => {
 	const classes = useStyles();
 
 	return (
@@ -34,7 +34,12 @@ const Drawer = ({ setOpen, open }) => {
 						RSVP
 					</Typography>
 				</NavLink>
-				<img className={classes.image} src={logoDrawer} alt="logo" />
+				<div style={{ display: "flex", flexDirection: "column" }}>
+					<img className={classes.image} src={logoDrawer} alt="logo" />
+					<Typography variant="button" onClick={() => axiosLogout()}>
+						Déconnexion
+					</Typography>
+				</div>
 			</div>
 		</DrawerComponent>
 	);

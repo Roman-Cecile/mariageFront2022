@@ -1,6 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
 import "../../styles/App.css";
-import jumbo from "../../images/jumbo.jpg";
 
 const useStyles = makeStyles((theme) => ({
 	// Places

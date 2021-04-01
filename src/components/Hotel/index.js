@@ -9,7 +9,7 @@ import hotel from "../../images/hotel.jpg";
 
 import { Card, CardActions, CardContent, CardHeader, CardMedia, Grid, IconButton, Typography } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
-import { Favorite, Phone, Language } from "@material-ui/icons";
+import { Phone, Language } from "@material-ui/icons";
 const Hotel = ({ setOpen, open }) => {
 	const classes = useStyles();
 
