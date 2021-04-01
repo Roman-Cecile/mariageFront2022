@@ -40,18 +40,18 @@ const useStyles = makeStyles((theme) => ({
 
 	titleName: {
 		lineHeight: "normal",
-		fontFamily: "'Prata', serif",
+		fontFamily: "'Prata', serif !important",
 	},
 
 	subTitle: {
-		fontFamily: "'Prata', serif",
+		fontFamily: "'Prata', serif !important",
 		fontSize: theme.typography.h5.fontSize,
 		margin: 16,
 	},
 
 	date: {
 		padding: "32px 0",
-		fontFamily: "'Prata', serif",
+		fontFamily: "'Prata', serif !important",
 	},
 
 	paragraph: {
@@ -72,6 +72,15 @@ const useStyles = makeStyles((theme) => ({
 
 	footer: {
 		padding: 16,
+	},
+
+	//..........LOGIN PAGE.............
+	form: {
+		margin: 16,
+	},
+
+	fontFamilyLogin: {
+		fontFamily: "'Prata', serif !important",
 	},
 }));
 

@@ -15,6 +15,7 @@ const Contact = (props) => {
 			<form className={classes.form}>
 				{Object.keys(fields).map((field) => (
 					<TextField
+						key={field}
 						fullWidth
 						value={fields[field]}
 						id={field}

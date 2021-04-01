@@ -3,7 +3,7 @@ import "../../styles/App.css";
 
 const useStyles = makeStyles((theme) => ({
 	container: {
-		padding: 70,
+		padding: "70px 16px",
 		minWidth: 150,
 		backgroundColor: "#edefec",
 		height: "100%",
