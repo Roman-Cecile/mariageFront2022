@@ -9,11 +9,10 @@ import rings from "../../images/rings.svg";
 
 import { Typography, Paper, Grid, Radio, RadioGroup, FormControlLabel, FormControl, Button } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
-const Questionnaire = ({ users }) => {
+const Questionnaire = ({ users, axiosUpdateUser }) => {
 	const classes = useStyles();
-	const [checked, setChecked] = useState([]);
+	const [checked, setChecked] = useState({});
 
-	console.log({ checked });
 	return (
 		<div>
 			<div className={classes.bandeau}>
@@ -49,7 +48,7 @@ const Questionnaire = ({ users }) => {
 													[user.lastName]: {
 														...checked[user.lastName],
 														id: user.id,
-														present: event.target.value,
+														present: true,
 													},
 												}))
 											}
@@ -65,7 +64,7 @@ const Questionnaire = ({ users }) => {
 													[user.lastName]: {
 														...checked[user.lastName],
 														id: user.id,
-														present: event.target.value,
+														present: false,
 													},
 												}))
 											}
@@ -83,8 +82,8 @@ const Questionnaire = ({ users }) => {
 				<Button
 					variant="contained"
 					className={classes.button}
-					fullWidth /* onClick={() => axiosUpdateUser()} */
-				>
+					fullWidth
+					onClick={() => axiosUpdateUser(checked)}>
 					Valider
 				</Button>
 			</Paper>
@@ -114,7 +113,7 @@ const Questionnaire = ({ users }) => {
 													[user.lastName]: {
 														...checked[user.lastName],
 														id: user.id,
-														vegan: event.target.value,
+														vegan: true,
 													},
 												}))
 											}
@@ -130,7 +129,7 @@ const Questionnaire = ({ users }) => {
 													[user.lastName]: {
 														...checked[user.lastName],
 														id: user.id,
-														vegan: event.target.value,
+														vegan: false,
 													},
 												}))
 											}
@@ -145,7 +144,12 @@ const Questionnaire = ({ users }) => {
 						</Grid>
 					))}
 				</Grid>
-				<Button variant="contained" className={classes.button} fullWidth type="submit">
+				<Button
+					onClick={() => axiosUpdateUser(checked)}
+					variant="contained"
+					className={classes.button}
+					fullWidth
+					type="submit">
 					Valider
 				</Button>
 			</Paper>
