@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 // @Material UI
@@ -9,8 +9,10 @@ import rings from "../../images/rings.svg";
 
 import { Typography, Paper, Grid, Radio, RadioGroup, FormControlLabel, FormControl, Button } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
-const Questionnaire = () => {
+const Questionnaire = ({ users, axiosUpdateUser }) => {
 	const classes = useStyles();
+	const [checked, setChecked] = useState({});
+
 	return (
 		<div>
 			<div className={classes.bandeau}>
@@ -26,11 +28,11 @@ const Questionnaire = () => {
 
 			<Paper className={classes.paper} elevation={1}>
 				<Grid container className={classes.radioBox}>
-					{["Odile Bois", "Didier Bois", "Léo Bois", "Faustine Bois"].map((person, index) => (
+					{users.map((user, index) => (
 						<Grid container item alignItems={index === 0 ? "flex-end" : "center"}>
 							{/* xs= 10 in pc and 6 in mobile */}
 							<Grid item xs={6} md={8} sm={9}>
-								<Typography style={{ marginBottom: index === 0 && 5 }}>{person}</Typography>
+								<Typography style={{ marginBottom: index === 0 && 5 }}>{user.lastName}</Typography>
 							</Grid>
 							{/* xs= 2 in pc and 6 in mobile */}
 							<Grid item xs={6} md={4} sm={3}>
@@ -40,12 +42,32 @@ const Questionnaire = () => {
 										name="gender1"
 										style={{ display: "flex", flexDirection: "row" }}>
 										<FormControlLabel
+											onChange={(event) =>
+												setChecked((prevState) => ({
+													...prevState,
+													[user.lastName]: {
+														...checked[user.lastName],
+														id: user.id,
+														present: true,
+													},
+												}))
+											}
 											labelPlacement="top"
 											value="present"
 											label={index === 0 && "Oui"}
 											control={<Radio color="primary" />}
 										/>
 										<FormControlLabel
+											onChange={(event) =>
+												setChecked((prevState) => ({
+													...prevState,
+													[user.lastName]: {
+														...checked[user.lastName],
+														id: user.id,
+														present: false,
+													},
+												}))
+											}
 											label={index === 0 && "Non"}
 											labelPlacement="top"
 											value="absent"
@@ -57,7 +79,11 @@ const Questionnaire = () => {
 						</Grid>
 					))}
 				</Grid>
-				<Button variant="contained" className={classes.button} fullWidth type="submit">
+				<Button
+					variant="contained"
+					className={classes.button}
+					fullWidth
+					onClick={() => axiosUpdateUser(checked)}>
 					Valider
 				</Button>
 			</Paper>
@@ -67,11 +93,11 @@ const Questionnaire = () => {
 
 			<Paper className={classes.paper} elevation={1}>
 				<Grid container className={classes.radioBox}>
-					{["Odile Bois", "Didier Bois", "Léo Bois", "Faustine Bois"].map((person, index) => (
+					{users.map((user, index) => (
 						<Grid container item alignItems={index === 0 ? "flex-end" : "center"}>
 							{/* xs= 10 in pc and 6 in mobile */}
 							<Grid item xs={6} md={8} sm={9}>
-								<Typography style={{ marginBottom: index === 0 && 5 }}>{person}</Typography>
+								<Typography style={{ marginBottom: index === 0 && 5 }}>{user.lastName}</Typography>
 							</Grid>
 							{/* xs= 2 in pc and 6 in mobile */}
 							<Grid item xs={6} md={4} sm={3}>
@@ -81,15 +107,35 @@ const Questionnaire = () => {
 										name="gender1"
 										style={{ display: "flex", flexDirection: "row" }}>
 										<FormControlLabel
+											onChange={(event) =>
+												setChecked((prevState) => ({
+													...prevState,
+													[user.lastName]: {
+														...checked[user.lastName],
+														id: user.id,
+														vegan: true,
+													},
+												}))
+											}
 											labelPlacement="top"
-											value="present"
+											value="vegan"
 											label={index === 0 && "Oui"}
 											control={<Radio color="primary" />}
 										/>
 										<FormControlLabel
+											onChange={(event) =>
+												setChecked((prevState) => ({
+													...prevState,
+													[user.lastName]: {
+														...checked[user.lastName],
+														id: user.id,
+														vegan: false,
+													},
+												}))
+											}
 											label={index === 0 && "Non"}
 											labelPlacement="top"
-											value="absent"
+											value="omnivor"
 											control={<Radio />}
 										/>
 									</RadioGroup>
@@ -98,7 +144,12 @@ const Questionnaire = () => {
 						</Grid>
 					))}
 				</Grid>
-				<Button variant="contained" className={classes.button} fullWidth type="submit">
+				<Button
+					onClick={() => axiosUpdateUser(checked)}
+					variant="contained"
+					className={classes.button}
+					fullWidth
+					type="submit">
 					Valider
 				</Button>
 			</Paper>
