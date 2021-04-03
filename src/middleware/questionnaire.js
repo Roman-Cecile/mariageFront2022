@@ -2,6 +2,7 @@ import axios from "axios";
 // import { urlAPI } from "../utils/genericFunctions";
 
 import { AXIOS_UPDATE_USER } from "../actions/questionnaire";
+import { stateUsers } from "../actions/family";
 
 axios.defaults.withCredentials = true; // ! NE JAMAIS OUBLIER
 
@@ -10,6 +11,7 @@ const questionnaireAPI = (store) => (next) => (action) => {
 		case AXIOS_UPDATE_USER: {
 			// const data = new FormData();
 			// data.set("password", action.password);
+			console.log("middleware");
 			axios(
 				{
 					method: "PATCH",
@@ -21,8 +23,7 @@ const questionnaireAPI = (store) => (next) => (action) => {
 				}
 			)
 				.then((response) => {
-					// store.dispatch(stateLogin(response.data.family));
-					console.log({ response });
+					store.dispatch(stateUsers(response.data.users));
 				})
 				.catch((err) => {
 					console.log({ err });

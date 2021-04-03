@@ -1,7 +1,7 @@
 import axios from "axios";
 // import { urlAPI } from "../utils/genericFunctions";
 
-import { AXIOS_LOGIN, AXIOS_CHECK_LOG, AXIOS_LOGOUT, stateLogin, stateResetAfterLogout } from "../actions/family";
+import { AXIOS_LOGIN, AXIOS_CHECK_LOG, AXIOS_LOGOUT, stateUsers, stateResetAfterLogout } from "../actions/family";
 
 axios.defaults.withCredentials = true; // ! NE JAMAIS OUBLIER
 axios.defaults.headers.post["Content-Type"] = "multipart/form-data";
@@ -22,7 +22,7 @@ const familyAPI = (store) => (next) => (action) => {
 				}
 			)
 				.then((response) => {
-					store.dispatch(stateLogin(response.data.family));
+					store.dispatch(stateUsers(response.data.family));
 				})
 				.catch((err) => {
 					console.log({ err });
@@ -40,7 +40,7 @@ const familyAPI = (store) => (next) => (action) => {
 				}
 			)
 				.then((response) => {
-					store.dispatch(stateLogin(response.data.family));
+					store.dispatch(stateUsers(response.data.family));
 				})
 				.catch((err) => {
 					console.log({ err });
