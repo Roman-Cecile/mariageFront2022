@@ -1,5 +1,5 @@
 export const AXIOS_LOGIN = "AXIOS_LOGIN";
-export const STATE_LOGIN = "STATE_LOGIN";
+export const STATE_USERS = "STATE_USERS";
 export const AXIOS_CHECK_LOG = "AXIOS_CHECK_LOG";
 export const AXIOS_LOGOUT = "AXIOS_LOGOUT";
 export const STATE_RESET_AFTER_LOGOUT = "STATE_RESET_AFTER_LOGOUT";
@@ -9,8 +9,8 @@ export const axiosLogin = (password) => ({
 	password,
 });
 
-export const stateLogin = (users) => ({
-	type: STATE_LOGIN,
+export const stateUsers = (users) => ({
+	type: STATE_USERS,
 	users, //array
 });
 
