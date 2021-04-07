@@ -8,7 +8,7 @@ import useStyles from "../../styles/LandingPage";
 import { Button, TextField, Typography } from "@material-ui/core";
 import { Redirect } from "react-router-dom";
 
-const Login = ({ axiosLogin, isLog }) => {
+const Login = ({ axiosLogin, isLog, message }) => {
 	const classes = useStyles();
 	const [password, setPassword] = useState("");
 	return (
@@ -18,6 +18,9 @@ const Login = ({ axiosLogin, isLog }) => {
 			</Typography>
 			<Typography variant="body1" align="center" style={{ margin: 16 }}>
 				Veuillez indiquer le code d'invitation disponible avec votre faire part
+			</Typography>
+			<Typography align="center" color="error">
+				{message}
 			</Typography>
 			<div>
 				<form className={classes.form} onSubmit={(event) => axiosLogin(event, password)}>

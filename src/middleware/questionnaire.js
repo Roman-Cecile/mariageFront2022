@@ -23,7 +23,7 @@ const questionnaireAPI = (store) => (next) => (action) => {
 				}
 			)
 				.then((response) => {
-					store.dispatch(stateUsers(response.data.users));
+					store.dispatch(stateUsers("userUpdate", response.data.users));
 				})
 				.catch((err) => {
 					console.log({ err });
