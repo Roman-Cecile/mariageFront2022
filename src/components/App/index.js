@@ -17,7 +17,7 @@ import Drawer from "../Drawer";
 import Hotel from "../Hotel";
 import Login from "./login";
 
-const App = ({ axiosLogin, isLog, axiosCheckLog, axiosLogout }) => {
+const App = ({ axiosLogin, isLog, axiosCheckLog, axiosLogout, message }) => {
 	const classes = useStyles();
 	const [open, setOpen] = useState(false);
 
@@ -39,7 +39,7 @@ const App = ({ axiosLogin, isLog, axiosCheckLog, axiosLogout }) => {
 				) : (
 					<>
 						<Route>
-							<Login axiosLogin={axiosLogin} isLog={isLog} />
+							<Login axiosLogin={axiosLogin} isLog={isLog} message={message} />
 						</Route>
 					</>
 				)}

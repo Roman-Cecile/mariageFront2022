@@ -36,7 +36,12 @@ const Drawer = ({ setOpen, open, isLog, axiosLogout }) => {
 				</NavLink>
 				<div style={{ display: "flex", flexDirection: "column" }}>
 					<img className={classes.image} src={logoDrawer} alt="logo" />
-					<Typography variant="button" onClick={() => axiosLogout()}>
+					<Typography
+						variant="button"
+						onClick={() => {
+							axiosLogout();
+							setOpen(false);
+						}}>
 						Déconnexion
 					</Typography>
 				</div>

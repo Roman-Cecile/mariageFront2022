@@ -17,12 +17,14 @@ import {
 	FormControl,
 	Button,
 	Collapse,
+	Snackbar,
 } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
 
 import { capitalize } from "../../utils";
+import { Alert } from "@material-ui/lab";
 
-const Questionnaire = ({ users, axiosUpdateUser }) => {
+const Questionnaire = ({ users, axiosUpdateUser, message, resetMessage }) => {
 	const classes = useStyles();
 	const [checked, setChecked] = useState({});
 	const [toggleUpdateRadioBox, setToggleUpdateRadioBox] = useState({ present: false, vegan: false });
@@ -42,6 +44,14 @@ const Questionnaire = ({ users, axiosUpdateUser }) => {
 
 	return (
 		<div>
+			<Snackbar
+				open={message !== ""}
+				autoHideDuration={5000}
+				onClose={resetMessage}
+				anchorOrigin={{ vertical: "top", horizontal: "center" }}
+				style={{ top: "37vh" }}>
+				<Alert>Infos mises à jour</Alert>
+			</Snackbar>
 			<div className={classes.bandeau}>
 				<NavLink to="/">
 					<img src={rings} alt="rings" style={{ width: "auto" }} />
