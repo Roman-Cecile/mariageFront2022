@@ -34,6 +34,7 @@ const Drawer = ({ setOpen, open, isLog, axiosLogout }) => {
 						RSVP
 					</Typography>
 				</NavLink>
+
 				<div style={{ display: "flex", flexDirection: "column" }}>
 					<img className={classes.image} src={logoDrawer} alt="logo" />
 					<Typography

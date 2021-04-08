@@ -32,7 +32,11 @@ const familyAPI = (store) => (next) => (action) => {
 					store.dispatch(stateUsers("login", response.data.family));
 				})
 				.catch((err) => {
-					store.dispatch(stateMessage(err.response.data.message));
+					if (err.response) {
+						store.dispatch(stateMessage(err.response.data.message));
+					} else {
+						store.dispatch(stateMessage("Le serveur ne répond pas, veuillez réessayez plus tard"));
+					}
 					console.log({ err });
 				});
 			break;

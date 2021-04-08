@@ -1,18 +1,44 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import emailjs from "emailjs-com";
 
 // @Material UI
 
 import useStyles from "../../styles/Contact";
 
-import { Button, TextField } from "@material-ui/core";
+import { Button, Snackbar, TextField } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
 
 const Contact = (props) => {
 	const classes = useStyles();
 	const [fields, setFields] = useState({ email: "", message: "" });
+
+	const [alertMessage, setAlertMessage] = useState({
+		open: false,
+		severity: "",
+		text: "",
+	});
+	const templateParams = {
+		user_email: fields.email,
+		message: fields.message,
+	};
+
+	const sendEmail = (event) => {
+		event.preventDefault();
+		emailjs.send("service_kh8hyom", "template_ykn9dwa", templateParams, "user_sE4nEN37iF9SMJMqSTqUg").then(
+			(response) => {
+				setAlertMessage({ open: true, severity: "success", text: "Votre message est envoyé !" });
+				setFields({ email: "", message: "" });
+			},
+			(err) => {
+				setAlertMessage({ open: true, severity: "error", text: "Votre message n'a pu être envoyé !" });
+			}
+		);
+	};
+
 	return (
 		<>
-			<form className={classes.form}>
+			<form id="contact" className={classes.form} onSubmit={(event) => sendEmail(event)}>
 				{Object.keys(fields).map((field) => (
 					<TextField
 						key={field}
@@ -24,9 +50,6 @@ const Contact = (props) => {
 						multiline={field === "message"}
 						required
 						variant={field === "message" ? "outlined" : "standard"}
-						// InputProps={{
-						// 	style: { height: field === "message" && 150 },
-						// }}
 						rows={5}
 						style={{ marginBottom: field === "email" && 16 }}
 					/>
@@ -39,6 +62,14 @@ const Contact = (props) => {
 					Envoyer
 				</Button>
 			</form>
+
+			{/*........ALERT MESSAGE........*/}
+			<Snackbar
+				open={alertMessage.open}
+				autoHideDuration={5000}
+				onClose={() => setAlertMessage({ open: false, text: "", severity: "" })}>
+				<Alert severity={alertMessage.severity || "info"}>{alertMessage.text}</Alert>
+			</Snackbar>
 		</>
 	);
 };

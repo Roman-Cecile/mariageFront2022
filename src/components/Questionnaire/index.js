@@ -66,7 +66,7 @@ const Questionnaire = ({ users, axiosUpdateUser, message, resetMessage }) => {
 			<Paper className={classes.paper} elevation={1}>
 				<Grid container className={classes.radioBox}>
 					{users.map((user, index) => (
-						<Grid container item alignItems={index === 0 ? "flex-end" : "center"}>
+						<Grid key={user.firstName} container item alignItems={index === 0 ? "flex-end" : "center"}>
 							{/* xs= 10 in pc and 6 in mobile */}
 							<Grid item xs={6} md={8} sm={9}>
 								<Typography style={{ marginBottom: index === 0 && 5 }}>
@@ -145,7 +145,11 @@ const Questionnaire = ({ users, axiosUpdateUser, message, resetMessage }) => {
 						{users.map(
 							(user, index) =>
 								user.present && (
-									<Grid container item alignItems={index === 0 ? "flex-end" : "center"}>
+									<Grid
+										key={user.firstName}
+										container
+										item
+										alignItems={index === 0 ? "flex-end" : "center"}>
 										{/* xs= 10 in pc and 6 in mobile */}
 										<Grid item xs={6} md={8} sm={9}>
 											<Typography style={{ marginBottom: index === 0 && 5 }}>
