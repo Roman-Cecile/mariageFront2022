@@ -4,7 +4,7 @@ import jumbo from "../../images/jumbo.jpg";
 
 const useStyles = makeStyles((theme) => ({
 	maxWidth: {
-		maxWidth: 1200,
+		maxWidth: 1080,
 		margin: "auto",
 	},
 
@@ -81,6 +81,27 @@ const useStyles = makeStyles((theme) => ({
 
 	fontFamilyLogin: {
 		fontFamily: "'Prata', serif !important",
+	},
+
+	// PC version
+	navbar: {
+		flexGrow: 1,
+		justifyContent: "space-evenly",
+		display: "flex",
+	},
+
+	hoverLink: {
+		color: "inherit",
+		margin: "auto ",
+		transition: "0.3s",
+		display: "flex",
+		padding: "4px 8px",
+		"&:hover": {
+			backgroundColor: "#80808017",
+			borderRadius: 4,
+			fontWeight: "bolder",
+			color: "#e58a56",
+		},
 	},
 }));
 

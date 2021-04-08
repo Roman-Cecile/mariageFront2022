@@ -5,6 +5,8 @@ const useStyles = makeStyles((theme) => ({
 	// Places
 	container: {
 		padding: "8px 16px",
+		maxWidth: 800,
+		margin: "auto",
 	},
 	paperPlaces: {
 		margin: "32px auto",
