@@ -112,26 +112,26 @@ const Questionnaire = ({ users, axiosUpdateUser, message, resetMessage }) => {
 						</Grid>
 					))}
 				</Grid>
-				{toggleUpdateRadioBox.present ? (
-					<Button
-						variant="contained"
-						className={classes.button}
-						fullWidth
-						onClick={() => {
-							axiosUpdateUser(checked);
-							setToggleUpdateRadioBox((prevState) => ({ ...prevState, present: false }));
-						}}>
-						Valider
-					</Button>
-				) : (
-					<Button
-						variant="contained"
-						className={classes.button}
-						fullWidth
-						onClick={() => setToggleUpdateRadioBox((prevState) => ({ ...prevState, present: true }))}>
-						Mettre à jour
-					</Button>
-				)}
+				<div style={{ textAlign: "center" }}>
+					{toggleUpdateRadioBox.present ? (
+						<Button
+							variant="contained"
+							className={classes.button}
+							onClick={() => {
+								axiosUpdateUser(checked);
+								setToggleUpdateRadioBox((prevState) => ({ ...prevState, present: false }));
+							}}>
+							Valider
+						</Button>
+					) : (
+						<Button
+							variant="contained"
+							className={classes.button}
+							onClick={() => setToggleUpdateRadioBox((prevState) => ({ ...prevState, present: true }))}>
+							Mettre à jour
+						</Button>
+					)}
+				</div>
 			</Paper>
 
 			{/*..............VEGAN..............*/}
@@ -204,26 +204,26 @@ const Questionnaire = ({ users, axiosUpdateUser, message, resetMessage }) => {
 								)
 						)}
 					</Grid>
-					{toggleUpdateRadioBox.vegan ? (
-						<Button
-							variant="contained"
-							className={classes.button}
-							fullWidth
-							onClick={() => {
-								axiosUpdateUser(checked);
-								setToggleUpdateRadioBox((prevState) => ({ ...prevState, vegan: false }));
-							}}>
-							Valider
-						</Button>
-					) : (
-						<Button
-							variant="contained"
-							className={classes.button}
-							fullWidth
-							onClick={() => setToggleUpdateRadioBox((prevState) => ({ ...prevState, vegan: true }))}>
-							Mettre à jour
-						</Button>
-					)}
+					<div style={{ textAlign: "center" }}>
+						{toggleUpdateRadioBox.vegan ? (
+							<Button
+								variant="contained"
+								className={classes.button}
+								onClick={() => {
+									axiosUpdateUser(checked);
+									setToggleUpdateRadioBox((prevState) => ({ ...prevState, vegan: false }));
+								}}>
+								Valider
+							</Button>
+						) : (
+							<Button
+								variant="contained"
+								className={classes.button}
+								onClick={() => setToggleUpdateRadioBox((prevState) => ({ ...prevState, vegan: true }))}>
+								Mettre à jour
+							</Button>
+						)}
+					</div>
 				</Paper>
 			</Collapse>
 

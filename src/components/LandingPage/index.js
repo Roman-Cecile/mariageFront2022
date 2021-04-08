@@ -11,7 +11,7 @@ import Places from "../Places";
 import CardHotel from "../CardHotel";
 import Contact from "../Contact";
 
-const LandingPage = ({ open, setOpen }) => {
+const LandingPage = ({ open, setOpen, responsive }) => {
 	const classes = useStyles();
 	return (
 		<>
