@@ -2,11 +2,8 @@ import { STATE_USERS, STATE_RESET_AFTER_LOGOUT, STATE_MESSAGE } from "../actions
 import { RESET_MESSAGE } from "../actions/genericActions";
 
 export const initialState = {
-	users: [
-		{
-			logged: false,
-		},
-	],
+	users: [],
+	isLogged: false,
 	message: "",
 };
 
@@ -16,12 +13,14 @@ const familyReducer = (state = initialState, action = {}) => {
 			return {
 				...state,
 				users: action.users,
+				isLogged: true,
 				message: action.actionType === "login" ? initialState.message : "Infos mises à jours",
 			};
 		}
 		case STATE_RESET_AFTER_LOGOUT: {
 			return {
 				...state,
+				isLogged: false,
 				users: initialState.users,
 			};
 		}

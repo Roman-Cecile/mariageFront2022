@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
 		backgroundSize: "cover",
 		backgroundAttachment: "fixed",
 		backgroundPositionY: -145,
+		cursor: "pointer",
 	},
 
 	radioBox: {
@@ -33,6 +34,12 @@ const useStyles = makeStyles((theme) => ({
 	question: {
 		margin: 16,
 		fontFamily: "'Prata', serif",
+	},
+
+	subtitle: {
+		color: "#b3b3b3",
+		fontSize: "0.8rem",
+		fontStyle: "italic",
 	},
 }));
 

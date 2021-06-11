@@ -75,12 +75,10 @@ const useStyles = makeStyles((theme) => ({
 	},
 
 	//..........LOGIN PAGE.............
-	form: {
-		margin: 16,
-	},
 
-	fontFamilyLogin: {
+	fontFamilyLink: {
 		fontFamily: "'Prata', serif !important",
+		color: "white",
 	},
 
 	// PC version

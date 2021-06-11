@@ -9,6 +9,7 @@ import {
 	stateResetAfterLogout,
 	stateMessage,
 } from "../actions/family";
+import { urlAPI } from "../utils";
 
 axios.defaults.withCredentials = true; // ! NE JAMAIS OUBLIER
 axios.defaults.headers.post["Content-Type"] = "multipart/form-data";
@@ -21,7 +22,7 @@ const familyAPI = (store) => (next) => (action) => {
 			axios(
 				{
 					method: "POST",
-					url: `http://localhost:5050/login`,
+					url: `${urlAPI}/login`,
 					data,
 				},
 				{
@@ -37,7 +38,6 @@ const familyAPI = (store) => (next) => (action) => {
 					} else {
 						store.dispatch(stateMessage("Le serveur ne répond pas, veuillez réessayez plus tard"));
 					}
-					console.log({ err });
 				});
 			break;
 		}
@@ -45,7 +45,7 @@ const familyAPI = (store) => (next) => (action) => {
 			axios(
 				{
 					method: "GET",
-					url: `http://localhost:5050/check`,
+					url: `${urlAPI}/check`,
 				},
 				{
 					withCredentials: true,
@@ -55,16 +55,16 @@ const familyAPI = (store) => (next) => (action) => {
 					store.dispatch(stateUsers("login", response.data.family));
 				})
 				.catch((err) => {
-					console.log({ err });
+					console.info({ err });
 				});
 			break;
 		}
 		case AXIOS_LOGOUT: {
-			const familyId = store.getState().familyReducer.users[0].family_id;
+			const familyId = store.getState().familyReducer.users["0"].family_id;
 			axios(
 				{
 					method: "DELETE",
-					url: `http://localhost:5050/logout/${familyId}`,
+					url: `${urlAPI}/logout/${familyId}`,
 				},
 				{
 					withCredentials: true,
@@ -74,7 +74,7 @@ const familyAPI = (store) => (next) => (action) => {
 					store.dispatch(stateResetAfterLogout());
 				})
 				.catch((err) => {
-					console.log({ err });
+					console.info({ err });
 				});
 			break;
 		}
