@@ -2,12 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 
 // @Material UI
+import { Typography, Paper, Grid } from "@material-ui/core";
 
 import useStyles from "../../styles/Card";
 import mairie from "../../images/jumbo.jpg";
 
-import { Typography, Paper, Grid } from "@material-ui/core";
-const Places = (props) => {
+const Places = () => {
 	const classes = useStyles();
 	return (
 		<div className={classes.container}>

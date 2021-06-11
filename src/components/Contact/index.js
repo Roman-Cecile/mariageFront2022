@@ -3,11 +3,14 @@ import PropTypes from "prop-types";
 import emailjs from "emailjs-com";
 
 // @Material UI
-
-import useStyles from "../../styles/Contact";
-
 import { Button, Snackbar, TextField } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
+
+// Styles
+import useStyles from "../../styles/Contact";
+
+// Utils
+import { capitalize } from "../../utils";
 
 const Contact = (props) => {
 	const classes = useStyles();
@@ -26,11 +29,12 @@ const Contact = (props) => {
 	const sendEmail = (event) => {
 		event.preventDefault();
 		emailjs.send("service_kh8hyom", "template_ykn9dwa", templateParams, "user_sE4nEN37iF9SMJMqSTqUg").then(
-			(response) => {
+			() => {
 				setAlertMessage({ open: true, severity: "success", text: "Votre message est envoyé !" });
 				setFields({ email: "", message: "" });
 			},
-			(err) => {
+			// If the message hasn't been sent
+			() => {
 				setAlertMessage({ open: true, severity: "error", text: "Votre message n'a pu être envoyé !" });
 			}
 		);
@@ -38,6 +42,7 @@ const Contact = (props) => {
 
 	return (
 		<>
+			{/* ........ FORM ........ */}
 			<form id="contact" className={classes.form} onSubmit={(event) => sendEmail(event)}>
 				{Object.keys(fields).map((field) => (
 					<TextField
@@ -45,7 +50,7 @@ const Contact = (props) => {
 						fullWidth
 						value={fields[field]}
 						id={field}
-						label={field}
+						label={capitalize(field)}
 						onChange={(event) => setFields((prev) => ({ ...prev, [field]: event.target.value }))}
 						multiline={field === "message"}
 						required

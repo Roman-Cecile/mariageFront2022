@@ -13,6 +13,30 @@ import { Phone, Language } from "@material-ui/icons";
 const Hotel = ({ setOpen, open }) => {
 	const classes = useStyles();
 
+	const hotels = [
+		{
+			name: "Paella dish",
+			image: hotel,
+			description: "Chambre de 2 personnes",
+			link: "https://www.google.fr",
+			number: "+33645257841",
+		},
+		{
+			name: "Paella dish",
+			image: hotel,
+			description: "Chambre de 2 personnes",
+			link: "https://www.google.fr",
+			number: "+33645257841",
+		},
+		{
+			name: "Paella dish",
+			image: hotel,
+			description: "Chambre de 2 personnes",
+			link: "https://www.google.fr",
+			number: "+33645257841",
+		},
+	];
+
 	return (
 		<>
 			<div className={classes.bandeau}>
@@ -24,46 +48,27 @@ const Hotel = ({ setOpen, open }) => {
 			{/*..............CARD.............. */}
 
 			<Grid container justify="space-around">
-				<Grid item xs={5}>
-					<Card className={classes.card} elevation={0}>
-						<CardHeader title="Fast Hotel" subheader="Hotel" />
-						<CardMedia className={classes.media} image={hotel} title="Paella dish" />
-						<CardContent>
-							<Typography variant="body2" color="textSecondary" component="p">
-								Chambre de 2 personnes - Prix entre 40/70€
-							</Typography>
-						</CardContent>
-						<CardActions disableSpacing>
-							<a href="https://www.google.fr">
-								<Language color="primary" />
-							</a>
-							<IconButton aria-label="Phone">
-								<Phone />
-							</IconButton>
-						</CardActions>
-					</Card>
-				</Grid>
-				<Grid item xs={5}>
-					<Card className={classes.card} elevation={0}>
-						<CardHeader title="Bellevue" subheader="Camping" />
-						<CardMedia className={classes.media} image={hotel} title="Paella dish" />
-						<CardContent>
-							<Typography variant="body2" color="textSecondary" component="p">
-								Bengalow de 2 à 4 personnes - Prix entre 100/150€ Place pour tente - 15€
-							</Typography>
-						</CardContent>
-						<CardActions disableSpacing>
-							<IconButton aria-label="web site">
-								<a href="https://www.google.fr">
+				{hotels.map(({ name, image, description, link, number }) => (
+					<Grid item>
+						<Card className={classes.card} elevation={0}>
+							<CardHeader title="Fast Hotel" subheader="Hotel" />
+							<CardMedia className={classes.media} image={image} title={name} />
+							<CardContent>
+								<Typography variant="body2" color="textSecondary" component="p">
+									{description}
+								</Typography>
+							</CardContent>
+							<CardActions disableSpacing>
+								<a href={link}>
 									<Language color="primary" />
 								</a>
-							</IconButton>
-							<IconButton aria-label="Phone">
-								<Phone />
-							</IconButton>
-						</CardActions>
-					</Card>
-				</Grid>
+								<IconButton aria-label="Phone">
+									<Phone />
+								</IconButton>
+							</CardActions>
+						</Card>
+					</Grid>
+				))}
 			</Grid>
 		</>
 	);

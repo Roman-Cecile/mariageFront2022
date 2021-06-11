@@ -29,6 +29,9 @@ const Questionnaire = ({ users, axiosUpdateUser, message, resetMessage }) => {
 	const [checked, setChecked] = useState({});
 	const [toggleUpdateRadioBox, setToggleUpdateRadioBox] = useState({ present: false, vegan: false });
 
+	// Due date to give an answer
+	const dueDate = Date.parse("June 12, 2021 12:00:00");
+
 	// Handle change radio box
 	const onChange = (user, property, value) => {
 		setChecked((prevState) => ({
@@ -78,7 +81,7 @@ const Questionnaire = ({ users, axiosUpdateUser, message, resetMessage }) => {
 								<FormControl component="fieldset">
 									<RadioGroup
 										value={checked[user.firstName["present"]]}
-										defaultValue={user.present ? "present" : "no-present"}
+										defaultValue={user.present ? "present" : "absent"}
 										aria-label="present"
 										name="present1"
 										style={{ display: "flex", flexDirection: "row" }}>
@@ -97,7 +100,7 @@ const Questionnaire = ({ users, axiosUpdateUser, message, resetMessage }) => {
 										<FormControlLabel
 											disabled={!toggleUpdateRadioBox.present}
 											label={index === 0 && "Non"}
-											value="no-present"
+											value="absent"
 											labelPlacement="top"
 											control={
 												<Radio
@@ -125,6 +128,7 @@ const Questionnaire = ({ users, axiosUpdateUser, message, resetMessage }) => {
 						</Button>
 					) : (
 						<Button
+							disabled={toggleUpdateRadioBox.vegan}
 							variant="contained"
 							className={classes.button}
 							onClick={() => setToggleUpdateRadioBox((prevState) => ({ ...prevState, present: true }))}>
@@ -217,6 +221,7 @@ const Questionnaire = ({ users, axiosUpdateUser, message, resetMessage }) => {
 							</Button>
 						) : (
 							<Button
+								disabled={dueDate < Date.now() || toggleUpdateRadioBox.present}
 								variant="contained"
 								className={classes.button}
 								onClick={() => setToggleUpdateRadioBox((prevState) => ({ ...prevState, vegan: true }))}>

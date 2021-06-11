@@ -8,11 +8,11 @@ import useStyles from "../../styles/LandingPage";
 import { Button, Collapse, TextField, Typography } from "@material-ui/core";
 import { Redirect } from "react-router-dom";
 
-const Login = ({ axiosLogin, isLog, message }) => {
+const Login = ({ axiosLogin, isLogged, message }) => {
 	const classes = useStyles();
 	const [password, setPassword] = useState("");
 	return (
-		<div style={{ margin: 16 }}>
+		<div style={{ margin: "auto", width: "50%" }}>
 			<Typography variant="h5" align="center" className={classes.fontFamily}>
 				Bienvenue !
 			</Typography>
@@ -45,7 +45,7 @@ const Login = ({ axiosLogin, isLog, message }) => {
 					</Button>
 				</form>
 			</div>
-			{isLog && <Redirect to="/" />}
+			{isLogged && <Redirect to="/" />}
 		</div>
 	);
 };

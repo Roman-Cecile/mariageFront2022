@@ -2,13 +2,21 @@ import React from "react";
 import PropTypes from "prop-types";
 
 // @Material UI
+import { Typography, SwipeableDrawer as DrawerComponent } from "@material-ui/core";
 
+// React router
+import { NavLink } from "react-router-dom";
+
+// Style
 import useStyles from "../../styles/Drawer";
+
+// Image
 import logoDrawer from "../../images/logoDrawer.svg";
 
-import { Typography, SwipeableDrawer as DrawerComponent } from "@material-ui/core";
-import { NavLink } from "react-router-dom";
-const Drawer = ({ setOpen, open, isLog, axiosLogout }) => {
+// Utils
+import { navbarActions } from "../../utils";
+
+const Drawer = ({ setOpen, open, isLogged, axiosLogout }) => {
 	const classes = useStyles();
 
 	return (
@@ -19,21 +27,13 @@ const Drawer = ({ setOpen, open, isLog, axiosLogout }) => {
 			onClose={() => setOpen(false)}
 			style={{ maxWidth: 150 }}>
 			<div className={classes.container}>
-				<NavLink to="/" className={classes.navlink} onClick={() => setOpen(false)}>
-					<Typography variant="body1" className={classes.text}>
-						Accueil
-					</Typography>
-				</NavLink>
-				<NavLink to="/hotel" className={classes.navlink} onClick={() => setOpen(false)}>
-					<Typography variant="body1" className={classes.text}>
-						Hôtels
-					</Typography>
-				</NavLink>
-				<NavLink to="/rsvp" className={classes.navlink} onClick={() => setOpen(false)}>
-					<Typography variant="body1" className={classes.text}>
-						RSVP
-					</Typography>
-				</NavLink>
+				{navbarActions.map(({ text, link }) => (
+					<NavLink to={link} className={classes.navlink} onClick={() => setOpen(false)}>
+						<Typography variant="body1" className={classes.text}>
+							{text}
+						</Typography>
+					</NavLink>
+				))}
 
 				<div style={{ display: "flex", flexDirection: "column" }}>
 					<img className={classes.image} src={logoDrawer} alt="logo" />

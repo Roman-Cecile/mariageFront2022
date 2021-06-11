@@ -12,7 +12,6 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch) => ({
 	axiosUpdateUser: (datas) => {
-		console.log("contaier");
 		dispatch(axiosUpdateUser(datas));
 	},
 
