@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 // @Material UI
 import { Typography, Paper, Grid } from "@material-ui/core";

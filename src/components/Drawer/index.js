@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 // @Material UI
 import { Typography, SwipeableDrawer as DrawerComponent } from "@material-ui/core";
@@ -49,11 +48,6 @@ const Drawer = ({ setOpen, open, isLogged, axiosLogout }) => {
 			</div>
 		</DrawerComponent>
 	);
-};
-
-Drawer.propTypes = {
-	setOpen: PropTypes.func.isRequired,
-	open: PropTypes.bool.isRequired,
 };
 
 export default Drawer;

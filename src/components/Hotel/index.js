@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 // @Material UI
 
@@ -73,7 +72,5 @@ const Hotel = ({ setOpen, open }) => {
 		</>
 	);
 };
-
-Hotel.propTypes = {};
 
 export default Hotel;

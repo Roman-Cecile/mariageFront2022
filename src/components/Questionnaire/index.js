@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 
 // @Material UI
 
@@ -239,7 +238,5 @@ const Questionnaire = ({ users, axiosUpdateUser, message, resetMessage }) => {
 		</div>
 	);
 };
-
-Questionnaire.propTypes = {};
 
 export default Questionnaire;

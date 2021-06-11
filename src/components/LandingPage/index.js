@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 // @Material UI
 
@@ -85,11 +84,6 @@ const LandingPage = ({ open, setOpen, responsive }) => {
 			</main>
 		</>
 	);
-};
-
-LandingPage.propTypes = {
-	setOpen: PropTypes.func.isRequired,
-	open: PropTypes.bool.isRequired,
 };
 
 export default LandingPage;
