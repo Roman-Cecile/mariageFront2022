@@ -239,6 +239,4 @@ const Questionnaire = ({ users, axiosUpdateUser, message, resetMessage }) => {
 	);
 };
 
-Questionnaire.propTypes = {};
-
 export default Questionnaire;

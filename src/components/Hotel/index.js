@@ -73,6 +73,4 @@ const Hotel = ({ setOpen, open }) => {
 	);
 };
 
-Hotel.propTypes = {};
-
 export default Hotel;

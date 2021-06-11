@@ -50,9 +50,4 @@ const Drawer = ({ setOpen, open, isLogged, axiosLogout }) => {
 	);
 };
 
-Drawer.propTypes = {
-	setOpen: PropTypes.func.isRequired,
-	open: PropTypes.bool.isRequired,
-};
-
 export default Drawer;
