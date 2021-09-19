@@ -12,7 +12,7 @@ import Contact from "../Contact";
 import { useHistory } from "react-router-dom";
 
 const LandingPage = ({ open, setOpen, responsive }) => {
-  const [day, _] = React.useState(
+  const [day] = React.useState(
     (Date.parse("July 02, 2022 14:30:00") - Date.now()) / (1000 * 3600 * 24)
   );
   const classes = useStyles();
