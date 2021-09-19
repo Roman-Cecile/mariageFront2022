@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 // @Material UI
 import useMediaQuery from "@material-ui/core/useMediaQuery";
