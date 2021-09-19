@@ -40,6 +40,7 @@ const familyAPI = (store) => (next) => (action) => {
           if (err.response) {
             store.dispatch(stateMessage(err.response.data.message));
           } else {
+            console.log({ err });
             store.dispatch(
               stateMessage(
                 "Le serveur ne répond pas, veuillez réessayez plus tard"
