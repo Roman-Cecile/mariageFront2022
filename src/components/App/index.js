@@ -32,9 +32,9 @@ const App = ({
   const theme = useTheme();
   const responsive = useMediaQuery(theme.breakpoints.up("md"));
 
-  useEffect(() => {
-    axiosCheckLog();
-  }, []);
+  // useEffect(() => {
+  //   axiosCheckLog();
+  // }, []);
   return (
     <>
       {isLogged &&
