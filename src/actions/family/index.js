@@ -6,29 +6,30 @@ export const STATE_RESET_AFTER_LOGOUT = "STATE_RESET_AFTER_LOGOUT";
 export const STATE_MESSAGE = "STATE_MESSAGE";
 
 export const axiosLogin = (password) => ({
-	type: AXIOS_LOGIN,
-	password,
+  type: AXIOS_LOGIN,
+  password,
 });
 
-export const stateUsers = (actionType, users) => ({
-	type: STATE_USERS,
-	users, //array
-	actionType, // login or userUpdate
+export const stateUsers = (actionType, users, sid) => ({
+  type: STATE_USERS,
+  users, //array
+  actionType, // login or userUpdate
+  sid,
 });
 
 export const axiosCheckLog = () => ({
-	type: AXIOS_CHECK_LOG,
+  type: AXIOS_CHECK_LOG,
 });
 
 export const axiosLogout = () => ({
-	type: AXIOS_LOGOUT,
+  type: AXIOS_LOGOUT,
 });
 
 export const stateResetAfterLogout = () => ({
-	type: STATE_RESET_AFTER_LOGOUT,
+  type: STATE_RESET_AFTER_LOGOUT,
 });
 
 export const stateMessage = (message) => ({
-	type: STATE_MESSAGE,
-	message,
+  type: STATE_MESSAGE,
+  message,
 });
