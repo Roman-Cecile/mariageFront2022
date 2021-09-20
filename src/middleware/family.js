@@ -30,11 +30,12 @@ const familyAPI = (store) => (next) => (action) => {
         }
       )
         .then((response) => {
-          localStorage.setItem("userId", response.data.family[0].user.id);
-          store.dispatch(
-            stateUsers("login", response.data.family, response.data.sid)
-          );
-          store.dispatch(axiosCheckLog());
+          console.log({ response });
+          // localStorage.setItem("userId", response.data.family[0].user.id);
+          // store.dispatch(
+          //   stateUsers("login", response.data.family, response.data.sid)
+          // );
+          // store.dispatch(axiosCheckLog());
         })
         .catch((err) => {
           if (err.response) {
