@@ -9,7 +9,6 @@ export const initialState = {
   users: [],
   isLogged: false,
   message: "",
-  sid: "",
 };
 
 const familyReducer = (state = initialState, action = {}) => {
@@ -19,7 +18,6 @@ const familyReducer = (state = initialState, action = {}) => {
         ...state,
         users: action.users,
         isLogged: true,
-        sid: action.sid,
         message:
           action.actionType === "login"
             ? initialState.message

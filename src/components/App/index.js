@@ -19,22 +19,15 @@ import Login from "./login";
 import { AppBar, Button, Toolbar, Typography } from "@material-ui/core";
 import { navbarActions } from "../../utils";
 
-const App = ({
-  axiosLogin,
-  isLogged,
-  axiosCheckLog,
-  axiosLogout,
-  message,
-  sid,
-}) => {
+const App = ({ axiosLogin, isLogged, axiosCheckLog, axiosLogout, message }) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const theme = useTheme();
   const responsive = useMediaQuery(theme.breakpoints.up("md"));
 
-  // useEffect(() => {
-  //   axiosCheckLog();
-  // }, []);
+  React.useEffect(() => {
+    axiosCheckLog();
+  }, []);
   return (
     <>
       {isLogged &&
@@ -72,7 +65,7 @@ const App = ({
           />
         ))}
       <Switch>
-        {isLogged ? (
+        {localStorage.getItem("sid") ? (
           <>
             <Route responsive={responsive} path="/" exact>
               <LandingPage open={open} setOpen={setOpen} />
@@ -87,7 +80,6 @@ const App = ({
                 axiosLogin={axiosLogin}
                 isLogged={isLogged}
                 message={message}
-                sid={sid}
               />
             </Route>
           </>
