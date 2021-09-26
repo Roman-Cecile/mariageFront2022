@@ -30,7 +30,10 @@ const familyAPI = (store) => (next) => (action) => {
         }
       )
         .then((response) => {
-          localStorage.setItem("familyId", response.data.family[0].family_id);
+          window.localStorage.setItem(
+            "familyId",
+            response.data.family[0].family_id
+          );
           store.dispatch(stateUsers("login", response.data.family));
         })
         .catch((err) => {
@@ -49,15 +52,15 @@ const familyAPI = (store) => (next) => (action) => {
     }
     case AXIOS_CHECK_LOG: {
       if (
-        !localStorage.getItem("familyId") ||
-        localStorage.getItem("familyId") === undefined
+        !window.localStorage.getItem("familyId") ||
+        window.localStorage.getItem("familyId") === undefined
       ) {
         return console.log("no session");
       }
       axios(
         {
           method: "GET",
-          url: `${urlAPI}/check/${localStorage.getItem("familyId")}`,
+          url: `${urlAPI}/check/${window.localStorage.getItem("familyId")}`,
         },
         {
           withCredentials: true,
@@ -83,7 +86,7 @@ const familyAPI = (store) => (next) => (action) => {
         }
       )
         .then((response) => {
-          localStorage.clear();
+          window.localStorage.clear();
           store.dispatch(stateResetAfterLogout());
         })
         .catch((err) => {
