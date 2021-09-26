@@ -30,7 +30,7 @@ const familyAPI = (store) => (next) => (action) => {
         }
       )
         .then((response) => {
-          localStorage.setItem("sid", response.data.sid);
+          localStorage.setItem("familyId", response.data.family[0].family_id);
           store.dispatch(stateUsers("login", response.data.family));
         })
         .catch((err) => {
@@ -49,15 +49,15 @@ const familyAPI = (store) => (next) => (action) => {
     }
     case AXIOS_CHECK_LOG: {
       if (
-        !localStorage.getItem("sid") ||
-        localStorage.getItem("sid") === undefined
+        !localStorage.getItem("familyId") ||
+        localStorage.getItem("familyId") === undefined
       ) {
         return console.log("no session");
       }
       axios(
         {
-          method: "POST",
-          url: `${urlAPI}/check/${localStorage.getItem("sid")}`,
+          method: "GET",
+          url: `${urlAPI}/check/${localStorage.getItem("familyId")}`,
         },
         {
           withCredentials: true,
