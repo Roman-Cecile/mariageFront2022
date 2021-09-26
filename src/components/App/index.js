@@ -65,7 +65,7 @@ const App = ({ axiosLogin, isLogged, axiosCheckLog, axiosLogout, message }) => {
           />
         ))}
       <Switch>
-        {localStorage.getItem("sid") ? (
+        {localStorage.getItem("familyId") ? (
           <>
             <Route responsive={responsive} path="/" exact>
               <LandingPage open={open} setOpen={setOpen} />
