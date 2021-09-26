@@ -7,7 +7,6 @@ import { axiosLogin, axiosCheckLog, axiosLogout } from "../../actions/family";
 const mapStateToProps = (state, ownProps) => ({
   isLogged: state.familyReducer.isLogged,
   message: state.familyReducer.message,
-  sid: state.familyReducer.sid,
 });
 
 const mapDispatchToProps = (dispatch) => ({

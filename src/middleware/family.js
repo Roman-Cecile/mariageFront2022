@@ -30,12 +30,8 @@ const familyAPI = (store) => (next) => (action) => {
         }
       )
         .then((response) => {
-          console.log({ response });
-          // localStorage.setItem("userId", response.data.family[0].user.id);
-          // store.dispatch(
-          //   stateUsers("login", response.data.family, response.data.sid)
-          // );
-          // store.dispatch(axiosCheckLog());
+          localStorage.setItem("sid", response.data.sid);
+          store.dispatch(stateUsers("login", response.data.family));
         })
         .catch((err) => {
           if (err.response) {
@@ -52,35 +48,35 @@ const familyAPI = (store) => (next) => (action) => {
       break;
     }
     case AXIOS_CHECK_LOG: {
+      if (
+        !localStorage.getItem("sid") ||
+        localStorage.getItem("sid") === undefined
+      ) {
+        return console.log("no session");
+      }
       axios(
         {
-          method: "GET",
-          url: `${urlAPI}/check`,
+          method: "POST",
+          url: `${urlAPI}/check/${localStorage.getItem("sid")}`,
         },
         {
           withCredentials: true,
         }
       )
         .then((response) => {
-          localStorage.getItem("sid") !== undefined &&
-            localStorage.setItem("sid", response.data.sid);
-          store.dispatch(
-            stateUsers("login", response.data.family, response.data.sid)
-          );
+          store.dispatch(stateUsers("login", response.data.family));
         })
         .catch((err) => {
-          console.info({ err });
+          // console.info({ err });
         });
       break;
     }
     case AXIOS_LOGOUT: {
       const familyId = store.getState().familyReducer.users["0"].family_id;
-      const sid = store.getState().familyReducer.sid;
       axios(
         {
           method: "DELETE",
-          url: `${urlAPI}/logout/${familyId}/${sid}`,
-          data: sid,
+          url: `${urlAPI}/logout/${familyId}`,
         },
         {
           withCredentials: true,

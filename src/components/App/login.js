@@ -5,15 +5,11 @@ import React, { useState } from "react";
 import useStyles from "../../styles/LandingPage";
 
 import { Button, Collapse, TextField, Typography } from "@material-ui/core";
-import { Redirect, useHistory } from "react-router-dom";
 
-const Login = ({ axiosLogin, isLogged, message, sid }) => {
+const Login = ({ axiosLogin, isLogged, message }) => {
   const classes = useStyles();
   const [password, setPassword] = useState("");
-  const history = useHistory();
-  if (localStorage.getItem("sid") === sid) {
-    history.replace("/");
-  }
+
   return (
     <div style={{ margin: "auto", width: "50%" }}>
       <Typography variant="h5" align="center" className={classes.fontFamily}>
@@ -50,7 +46,6 @@ const Login = ({ axiosLogin, isLogged, message, sid }) => {
           </Button>
         </form>
       </div>
-      {isLogged && <Redirect to="/" />}
     </div>
   );
 };

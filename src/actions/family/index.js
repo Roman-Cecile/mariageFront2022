@@ -10,11 +10,10 @@ export const axiosLogin = (password) => ({
   password,
 });
 
-export const stateUsers = (actionType, users, sid) => ({
+export const stateUsers = (actionType, users) => ({
   type: STATE_USERS,
   users, //array
   actionType, // login or userUpdate
-  sid,
 });
 
 export const axiosCheckLog = () => ({
