@@ -37,9 +37,9 @@ const App = ({ axiosLogin, isLogged, axiosCheckLog, axiosLogout, message }) => {
               <Toolbar>
                 <div className={classes.navbar}>
                   {navbarActions.map(({ text, link, icon }) => (
-                    <NavLink className={classes.hoverLink} to={link}>
+                    <NavLink key={text} className={classes.hoverLink} to={link}>
                       <Typography
-                        className={classes.fontFamilyLink}
+                        className={`${classes.fontFamilyLink} title`}
                         align="center">
                         {text}
                       </Typography>
@@ -51,7 +51,7 @@ const App = ({ axiosLogin, isLogged, axiosCheckLog, axiosLogout, message }) => {
                 <Button
                   onClick={axiosLogout}
                   size="small"
-                  className={`${classes.fontFamilyLink} ${classes.hoverLink}`}>
+                  className={`${classes.fontFamilyLink} ${classes.hoverLink} title`}>
                   Déconnexion
                 </Button>
               </Toolbar>

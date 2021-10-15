@@ -11,6 +11,8 @@ import CardHotel from "../CardHotel";
 import Contact from "../Contact";
 import { useHistory } from "react-router-dom";
 
+// import "./font.css";
+
 const LandingPage = ({ open, setOpen, responsive }) => {
   const [day] = React.useState(
     (Date.parse("July 02, 2022 14:30:00") - Date.now()) / (1000 * 3600 * 24)
@@ -31,8 +33,8 @@ const LandingPage = ({ open, setOpen, responsive }) => {
               timeout={1300}>
               <Typography
                 component="h1"
-                variant="h4"
-                className={classes.titleName}>
+                variant="h3"
+                className={`${classes.titleName} title`}>
                 Vinciane & Roman
               </Typography>
             </Slide>
@@ -42,13 +44,16 @@ const LandingPage = ({ open, setOpen, responsive }) => {
               mountOnEnter
               unmountOnExit
               timeout={1500}>
-              <Typography className={classes.subTitle}>Se Marient</Typography>
+              <Typography className={`${classes.subTitle} title`}>
+                Se Marient
+              </Typography>
             </Slide>
             <Fade in timeout={1600}>
               <img src={rings} alt="rings" style={{ width: "30%" }} />
             </Fade>
             <div
               id="countdown"
+              className="text"
               style={{
                 color: "white",
                 fontSize: "1.8rem",
@@ -60,11 +65,17 @@ const LandingPage = ({ open, setOpen, responsive }) => {
         </div>
       </header>
       <main className={classes.main}>
-        <Typography align="center" variant="h5" className={classes.date}>
+        <Typography
+          align="center"
+          variant="h5"
+          className={`${classes.date} title`}>
           Le 2 juillet 2022
         </Typography>
         <article className={classes.maxWidth}>
-          <Typography paragraph align="justify" className={classes.paragraph}>
+          <Typography
+            paragraph
+            align="justify"
+            className={`${classes.paragraph} text`}>
             Bienvenue sur le site de notre mariage ! Après 10 ans d’amour, nous
             avions envie de célébrer notre union en compagnie de tous ceux qui
             nous sont chers. Nous espérons pouvoir vous compter parmi nous ! En
@@ -82,8 +93,11 @@ const LandingPage = ({ open, setOpen, responsive }) => {
         </article>
         <div className={classes.spaceBetweenArticle} />
         {/*.....................PLACES.....................*/}
-        <article className={classes.containerPlaces}>
-          <Typography align="center" variant="h5" className={classes.date}>
+        <article>
+          <Typography
+            align="center"
+            variant="h5"
+            className={`${classes.date} title`}>
             Les lieux
           </Typography>
           <div className={classes.maxWidth}>
@@ -93,15 +107,21 @@ const LandingPage = ({ open, setOpen, responsive }) => {
         <div className={classes.spaceBetweenArticle} />
         {/*.....................HOTELS.....................*/}
         <article className={classes.maxWidth}>
-          <Typography align="center" variant="h5" className={classes.date}>
+          <Typography
+            align="center"
+            variant="h5"
+            className={`${classes.date} title`}>
             Où dormir ?
           </Typography>
           <CardHotel />
         </article>
         <div className={classes.spaceBetweenArticle} />
         {/*.....................CONTACT.....................*/}
-        <article className={classes.containerPlaces}>
-          <Typography align="center" variant="h5" className={classes.date}>
+        <article>
+          <Typography
+            align="center"
+            variant="h5"
+            className={`${classes.date} title`}>
             Nous contacter
           </Typography>
           <div className={classes.maxWidth}>
@@ -111,7 +131,7 @@ const LandingPage = ({ open, setOpen, responsive }) => {
                 align="center"
                 color="textSecondary"
                 variant="subtitle2">
-                Fabriqué par Roman
+                Conçu par Roman
               </Typography>
             </footer>
           </div>

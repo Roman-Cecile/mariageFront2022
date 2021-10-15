@@ -3,104 +3,96 @@ import "../../styles/App.css";
 import jumbo from "../../images/jumbo.jpg";
 
 const useStyles = makeStyles((theme) => ({
-	maxWidth: {
-		maxWidth: 1080,
-		margin: "auto",
-	},
+  maxWidth: {
+    maxWidth: 1080,
+    margin: "auto",
+  },
 
-	spaceBetweenArticle: {
-		width: "100%",
-		height: 20,
-		backgroundColor: "#b9c7a1",
-		boxShadow: "inset 0px 1.4px 5px #79797987",
-	},
-	header: {
-		width: "100%",
-		height: "80vh",
-		backgroundImage: `url(${jumbo})`,
-		backgroundSize: "cover",
-		backgroundAttachment: "fixed",
-	},
+  spaceBetweenArticle: {
+    width: "100%",
+    height: 20,
+    backgroundColor: "#c2d0d46b",
+    boxShadow: "inset 0px 1.4px 5px #79797987",
+  },
+  header: {
+    width: "100%",
+    height: "80vh",
+    backgroundImage: `url(${jumbo})`,
+    backgroundSize: "cover",
+    backgroundAttachment: "fixed",
+  },
 
-	burgerMenu: {
-		margin: 16,
-		position: "fixed",
-		right: 16,
-		zIndex: 1,
-	},
+  burgerMenu: {
+    margin: 16,
+    position: "fixed",
+    right: 16,
+    zIndex: 1,
+  },
 
-	containerTitle: {
-		textAlign: "center",
-		position: "fixed",
-		top: "30%",
-		right: "50%",
-		transform: "translate(50%,-50%)",
-		width: "fit-content",
-	},
+  containerTitle: {
+    textAlign: "center",
+    position: "fixed",
+    top: "30%",
+    right: "50%",
+    transform: "translate(50%,-50%)",
+    width: "fit-content",
+  },
 
-	titleName: {
-		lineHeight: "normal",
-		fontFamily: "'Prata', serif !important",
-	},
+  titleName: {
+    lineHeight: "normal",
+  },
 
-	subTitle: {
-		fontFamily: "'Prata', serif !important",
-		fontSize: theme.typography.h5.fontSize,
-		margin: 16,
-	},
+  subTitle: {
+    fontSize: theme.typography.h5.fontSize,
+    margin: 16,
+  },
 
-	date: {
-		padding: "32px 0",
-		fontFamily: "'Prata', serif !important",
-	},
+  date: {
+    padding: "32px 0",
+  },
 
-	paragraph: {
-		padding: 16,
-	},
+  paragraph: {
+    padding: 16,
+  },
 
-	main: {
-		backgroundColor: "#edefec",
+  main: {
+    backgroundColor: "#d8e0e2",
 
-		position: "relative",
-		// maxWidth: 1200,
-		margin: "auto",
-	},
+    position: "relative",
+    // maxWidth: 1200,
+    margin: "auto",
+  },
 
-	containerPlaces: {
-		backgroundColor: "#b2a49e2b",
-	},
+  footer: {
+    padding: 16,
+  },
 
-	footer: {
-		padding: 16,
-	},
+  //..........LOGIN PAGE.............
 
-	//..........LOGIN PAGE.............
+  fontFamilyLink: {
+    color: "white",
+  },
 
-	fontFamilyLink: {
-		fontFamily: "'Prata', serif !important",
-		color: "white",
-	},
+  // PC version
+  navbar: {
+    flexGrow: 1,
+    justifyContent: "space-evenly",
+    display: "flex",
+  },
 
-	// PC version
-	navbar: {
-		flexGrow: 1,
-		justifyContent: "space-evenly",
-		display: "flex",
-	},
-
-	hoverLink: {
-		color: "inherit",
-		margin: "auto ",
-		transition: "0.3s",
-		display: "flex",
-		padding: "4px 8px",
-		"&:hover": {
-			backgroundColor: "#80808017",
-			borderRadius: 4,
-			fontWeight: "bolder",
-			color: "#e58a56",
-		},
-	},
+  hoverLink: {
+    color: "inherit",
+    margin: "auto ",
+    transition: "0.3s",
+    display: "flex",
+    padding: "4px 8px",
+    "&:hover": {
+      backgroundColor: "#80808017",
+      borderRadius: 4,
+      fontWeight: "bolder",
+      color: "#e58a56",
+    },
+  },
 }));
 
 export default useStyles;
