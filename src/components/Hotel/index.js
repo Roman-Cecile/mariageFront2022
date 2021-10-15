@@ -15,7 +15,6 @@ import brune from "../../images/brune.jpg";
 import {
   Card,
   CardActions,
-  CardContent,
   CardHeader,
   CardMedia,
   Grid,
