@@ -39,7 +39,8 @@ const Login = ({ axiosLogin, isLogged, message }) => {
 
           <Button
             fullWidth
-            style={{ backgroundColor: "#b9c7a1", marginTop: 16 }}
+            className="text"
+            style={{ backgroundColor: "#598a986b", marginTop: 16 }}
             variant="contained"
             type="submit">
             Envoyer
