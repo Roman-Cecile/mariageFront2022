@@ -25,5 +25,5 @@ export const navbarActions = [
   },
 ];
 
-// export const urlAPI = "https://api-mariage.herokuapp.com";
-export const urlAPI = "http://localhost:5050";
+export const urlAPI = "https://api-mariage.herokuapp.com";
+// export const urlAPI = "http://localhost:5050";
