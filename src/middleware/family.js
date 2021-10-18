@@ -71,6 +71,8 @@ const familyAPI = (store) => (next) => (action) => {
         })
         .catch((err) => {
           // console.info({ err });
+          window.localStorage.clear();
+          window.location.reload();
         });
       break;
     }
