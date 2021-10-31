@@ -10,6 +10,7 @@ import Places from "../Places";
 import CardHotel from "../CardHotel";
 import Contact from "../Contact";
 import { useHistory } from "react-router-dom";
+import WeddingList from "../WeddingList";
 
 // import "./font.css";
 
@@ -114,6 +115,17 @@ const LandingPage = ({ open, setOpen, responsive }) => {
             Où dormir ?
           </Typography>
           <CardHotel />
+        </article>
+        <div className={classes.spaceBetweenArticle} />
+        {/*.....................WEDDING LIST.....................*/}
+        <article className={classes.maxWidth}>
+          <Typography
+            align="center"
+            variant="h5"
+            className={`${classes.date} title`}>
+            Liste de mariage
+          </Typography>
+          <WeddingList />
         </article>
         <div className={classes.spaceBetweenArticle} />
         {/*.....................CONTACT.....................*/}

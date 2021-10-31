@@ -75,7 +75,7 @@ const Hotel = ({ setOpen, open }) => {
       </div>
 
       <Typography variant="h6" align="center" style={{ margin: "10px auto" }}>
-        Cette liste d'hotêl est non exhaustive. Il y à d'autres établissements
+        Cette liste d'hotêl est non exhaustive. il y a d'autres établissements
         disponibles
       </Typography>
 

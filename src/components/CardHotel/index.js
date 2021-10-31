@@ -5,6 +5,9 @@ import useStyles from "../../styles/Card";
 
 // Image
 import mazetJean from "../../images/mazetJean.webp";
+import mazetBonny from "../../images/bonny.jpg";
+import ponant from "../../images/ponant.jpg";
+import fast from "../../images/fast.jpg";
 
 // React router
 import { NavLink } from "react-router-dom";
@@ -23,19 +26,19 @@ const CardHotel = (props) => {
       number: "33434041297",
     },
     {
-      image: mazetJean,
+      image: mazetBonny,
       name: "Le Mazet de Bony",
       link: "https://www.airbnb.fr/rooms/18192620?source_impression_id=p3_1633257488_xZElLnsAaiLcVBDy&guests=1&adults=1",
       number: null,
     },
     {
-      image: mazetJean,
+      image: ponant,
       name: "Le Ponant",
       link: "https://www.airbnb.fr/rooms/18609419?source_impression_id=p3_1633258044_p2hJSQyrwmcH5HLx&guests=1&adults=1",
       number: "33651099173",
     },
     {
-      image: mazetJean,
+      image: fast,
       name: "Fasthotel",
       link: "www.google.com",
       number: "33545451278",

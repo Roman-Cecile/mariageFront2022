@@ -4,7 +4,9 @@ import React from "react";
 import { Typography, Paper, Grid } from "@material-ui/core";
 
 import useStyles from "../../styles/Card";
-import mairie from "../../images/jumbo.jpg";
+import mairie from "../../images/mairie.jpg";
+import eglise from "../../images/eglise.jpeg";
+import domaine from "../../images/grandmalherbe.jpg";
 
 const Places = () => {
   const classes = useStyles();
@@ -38,7 +40,7 @@ const Places = () => {
             <Typography className="text">15h00</Typography>
           </Grid>
           <Grid item xs={6} md={4}>
-            <img src={mairie} alt="eglise" className={classes.imageLeft} />
+            <img src={eglise} alt="eglise" className={classes.imageLeft} />
           </Grid>
         </Grid>
       </Paper>
@@ -46,7 +48,7 @@ const Places = () => {
         <Grid container>
           <Grid item xs={6} md={4}>
             <img
-              src={mairie}
+              src={domaine}
               alt="La réception"
               className={classes.imageRight}
             />
