@@ -34,7 +34,7 @@ const Login = ({ axiosLogin, isLogged, message }) => {
             required
             variant="outlined"
             fullWidth
-            helperText="Si vous ne trouvez pas le code, envoyez un mail à mariage@gmail.com"
+            helperText="Si vous ne trouvez pas le code, envoyez un mail à roman.c6lle@gmail.com"
           />
 
           <Button
