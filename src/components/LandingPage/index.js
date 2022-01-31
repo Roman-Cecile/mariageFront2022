@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 // @Material UI
 
 import useStyles from "../../styles/LandingPage";
 import rings from "../../images/rings.svg";
 
-import { Fade, Slide, Typography } from "@material-ui/core";
+import { Fade, Modal, Slide, Typography, Backdrop } from "@material-ui/core";
 import Places from "../Places";
 import CardHotel from "../CardHotel";
 import Contact from "../Contact";
@@ -20,6 +20,8 @@ const LandingPage = ({ open, setOpen, responsive }) => {
   );
   const classes = useStyles();
   const history = useHistory();
+
+  const [openModal, setOpenModal] = useState(true);
   return (
     <>
       <header>
@@ -27,20 +29,20 @@ const LandingPage = ({ open, setOpen, responsive }) => {
           <div className={classes.containerTitle}>
             {/* h3 sur pc et h4 sur mobile */}
             <Slide
-              direction="left"
+              direction='left'
               in
               mountOnEnter
               unmountOnExit
               timeout={1300}>
               <Typography
-                component="h1"
-                variant="h3"
+                component='h1'
+                variant='h3'
                 className={`${classes.titleName} title`}>
                 Vinciane & Roman
               </Typography>
             </Slide>
             <Slide
-              direction="right"
+              direction='right'
               in
               mountOnEnter
               unmountOnExit
@@ -50,11 +52,11 @@ const LandingPage = ({ open, setOpen, responsive }) => {
               </Typography>
             </Slide>
             <Fade in timeout={1600}>
-              <img src={rings} alt="rings" style={{ width: "30%" }} />
+              <img src={rings} alt='rings' style={{ width: "30%" }} />
             </Fade>
             <div
-              id="countdown"
-              className="text"
+              id='countdown'
+              className='text'
               style={{
                 color: "white",
                 fontSize: "1.8rem",
@@ -67,15 +69,15 @@ const LandingPage = ({ open, setOpen, responsive }) => {
       </header>
       <main className={classes.main}>
         <Typography
-          align="center"
-          variant="h5"
+          align='center'
+          variant='h5'
           className={`${classes.date} title`}>
           Le 2 juillet 2022
         </Typography>
         <article className={classes.maxWidth}>
           <Typography
             paragraph
-            align="justify"
+            align='justify'
             className={`${classes.paragraph} text`}>
             Bienvenue sur le site de notre mariage ! Après 10 ans d’amour, nous
             avions envie de célébrer notre union en compagnie de tous ceux qui
@@ -96,8 +98,8 @@ const LandingPage = ({ open, setOpen, responsive }) => {
         {/*.....................PLACES.....................*/}
         <article>
           <Typography
-            align="center"
-            variant="h5"
+            align='center'
+            variant='h5'
             className={`${classes.date} title`}>
             Les lieux
           </Typography>
@@ -106,33 +108,28 @@ const LandingPage = ({ open, setOpen, responsive }) => {
           </div>
         </article>
         <div className={classes.spaceBetweenArticle} />
+        {/*.....................WEDDING LIST.....................*/}
+        <article className={classes.maxWidth}>
+          <WeddingList />
+        </article>
+        <div className={classes.spaceBetweenArticle} />
         {/*.....................HOTELS.....................*/}
         <article className={classes.maxWidth}>
           <Typography
-            align="center"
-            variant="h5"
+            align='center'
+            variant='h5'
             className={`${classes.date} title`}>
             Où dormir ?
           </Typography>
           <CardHotel />
         </article>
         <div className={classes.spaceBetweenArticle} />
-        {/*.....................WEDDING LIST.....................*/}
-        <article className={classes.maxWidth}>
-          <Typography
-            align="center"
-            variant="h5"
-            className={`${classes.date} title`}>
-            Liste de mariage
-          </Typography>
-          <WeddingList />
-        </article>
-        <div className={classes.spaceBetweenArticle} />
+
         {/*.....................CONTACT.....................*/}
         <article>
           <Typography
-            align="center"
-            variant="h5"
+            align='center'
+            variant='h5'
             className={`${classes.date} title`}>
             Nous contacter
           </Typography>
@@ -140,15 +137,52 @@ const LandingPage = ({ open, setOpen, responsive }) => {
             <Contact />
             <footer className={classes.footer}>
               <Typography
-                align="center"
-                color="textSecondary"
-                variant="subtitle2">
+                align='center'
+                color='textSecondary'
+                variant='subtitle2'>
                 Conçu par Roman
               </Typography>
             </footer>
           </div>
         </article>
       </main>
+      <Modal
+        aria-labelledby='transition-modal-title'
+        aria-describedby='transition-modal-description'
+        className={classes.modal}
+        open={openModal}
+        onClose={() => setOpenModal(false)}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}>
+        <Fade in={openModal}>
+          <div className={classes.paper}>
+            <Typography variant='h4' align='center' id='transition-modal-title'>
+              Mise à jour !
+            </Typography>
+            <ul>
+              <li style={{ fontSize: "1.4rem" }}>
+                <span style={{ fontWeight: "bold" }}>
+                  Nouveaux hôtels disponibles !
+                </span>{" "}
+              </li>
+              <li style={{ fontSize: "1.4rem" }}>
+                <span style={{ fontWeight: "bold" }}>
+                  Navette retour soirée:
+                </span>{" "}
+                Besoin d'un transport pour rejoindre votre hôtel ? Contactez
+                nous !
+              </li>
+              <li style={{ fontSize: "1.4rem" }}>
+                <span style={{ fontWeight: "bold" }}>Dimanche:</span> Brunch
+                autour de la piscine du domaine à partir de 11h30
+              </li>
+            </ul>
+          </div>
+        </Fade>
+      </Modal>
     </>
   );
 };
