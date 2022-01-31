@@ -59,7 +59,7 @@ const Contact = (props) => {
     <>
       {/* ........ FORM ........ */}
       <form
-        id="contact"
+        id='contact'
         className={classes.form}
         onSubmit={(event) => sendEmail(event)}>
         {Object.keys(fields).map((field) => (
@@ -77,17 +77,22 @@ const Contact = (props) => {
             variant={field === "message" ? "outlined" : "standard"}
             rows={5}
             style={{ marginBottom: field === "email" && 16 }}
+            placeholder={
+              field === "message"
+                ? "Votre message"
+                : "Votre email pour obtenir une réponse"
+            }
           />
         ))}
         <Button
           fullWidth
-          className="text"
+          className='text'
           style={{
             backgroundColor: "#598a986b",
             marginTop: 16,
           }}
-          variant="contained"
-          type="submit">
+          variant='contained'
+          type='submit'>
           Envoyer
         </Button>
       </form>
