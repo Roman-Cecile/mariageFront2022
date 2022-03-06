@@ -32,7 +32,7 @@ const Questionnaire = ({ users, axiosUpdateUser, message, resetMessage }) => {
   });
 
   // Due date to give an answer
-  const dueDate = Date.parse("March 01, 2022 00:00:00");
+  const dueDate = Date.parse("March 31, 2022 00:00:00");
 
   // Handle change radio box
   const onChange = (user, property, value) => {
@@ -58,15 +58,15 @@ const Questionnaire = ({ users, axiosUpdateUser, message, resetMessage }) => {
         <Alert>Infos mises à jour</Alert>
       </Snackbar>
       <div className={classes.bandeau}>
-        <NavLink to="/">
-          <img src={rings} alt="rings" style={{ width: "auto" }} />
+        <NavLink to='/'>
+          <img src={rings} alt='rings' style={{ width: "auto" }} />
         </NavLink>
       </div>
 
       {/*..............PRESENT..............*/}
       <Typography
-        align="center"
-        variant="h6"
+        align='center'
+        variant='h6'
         className={`${classes.question} text`}>
         Serez-vous présent le 2 juillet 2022 ?
       </Typography>
@@ -83,23 +83,23 @@ const Questionnaire = ({ users, axiosUpdateUser, message, resetMessage }) => {
               <Grid item xs={6} md={8} sm={9}>
                 <Typography
                   style={{ marginBottom: index === 0 && 5 }}
-                  className="text">
+                  className='text'>
                   {capitalize(user.firstName)}
                 </Typography>
               </Grid>
               {/* xs= 2 in pc and 6 in mobile */}
               <Grid item xs={6} md={4} sm={3}>
-                <FormControl component="fieldset">
+                <FormControl component='fieldset'>
                   <RadioGroup
                     value={checked[user.firstName["present"]]}
                     defaultValue={user.present ? "present" : "absent"}
-                    aria-label="present"
-                    name="present1"
+                    aria-label='present'
+                    name='present1'
                     style={{ display: "flex", flexDirection: "row" }}>
                     <FormControlLabel
                       disabled={!toggleUpdateRadioBox.present}
-                      value="present"
-                      labelPlacement="top"
+                      value='present'
+                      labelPlacement='top'
                       label={index === 0 && "Oui"}
                       control={
                         <Radio
@@ -115,8 +115,8 @@ const Questionnaire = ({ users, axiosUpdateUser, message, resetMessage }) => {
                     <FormControlLabel
                       disabled={!toggleUpdateRadioBox.present}
                       label={index === 0 && "Non"}
-                      value="absent"
-                      labelPlacement="top"
+                      value='absent'
+                      labelPlacement='top'
                       control={
                         <Radio
                           color={
@@ -139,7 +139,7 @@ const Questionnaire = ({ users, axiosUpdateUser, message, resetMessage }) => {
         <div style={{ textAlign: "center" }}>
           {toggleUpdateRadioBox.present ? (
             <Button
-              variant="contained"
+              variant='contained'
               className={classes.button}
               onClick={() => {
                 axiosUpdateUser(checked);
@@ -153,7 +153,7 @@ const Questionnaire = ({ users, axiosUpdateUser, message, resetMessage }) => {
           ) : (
             <Button
               disabled={dueDate < Date.now() || toggleUpdateRadioBox.vegan}
-              variant="contained"
+              variant='contained'
               className={classes.button}
               onClick={() =>
                 setToggleUpdateRadioBox((prevState) => ({
@@ -170,8 +170,8 @@ const Questionnaire = ({ users, axiosUpdateUser, message, resetMessage }) => {
       {/*..............VEGAN..............*/}
       <Collapse in={users.some((data) => data.present === true)}>
         <Typography
-          align="center"
-          variant="h6"
+          align='center'
+          variant='h6'
           className={`${classes.question} text`}>
           Etes-vous végétarien ?
         </Typography>
@@ -189,25 +189,25 @@ const Questionnaire = ({ users, axiosUpdateUser, message, resetMessage }) => {
                     {/* xs= 10 in pc and 6 in mobile */}
                     <Grid item xs={6} md={8} sm={9}>
                       <Typography
-                        className="text"
+                        className='text'
                         style={{ marginBottom: index === 0 && 5 }}>
                         {capitalize(user.firstName)}
                       </Typography>
                     </Grid>
                     {/* xs= 2 in pc and 6 in mobile */}
                     <Grid item xs={6} md={4} sm={3}>
-                      <FormControl component="fieldset">
+                      <FormControl component='fieldset'>
                         <RadioGroup
                           value={checked[user.firstName["vegan"]]}
                           defaultValue={user.vegan ? "vegan" : "no-vegan"}
-                          aria-label="vegan"
-                          name="vegan1"
+                          aria-label='vegan'
+                          name='vegan1'
                           style={{ display: "flex", flexDirection: "row" }}>
                           <FormControlLabel
                             disabled={!toggleUpdateRadioBox.vegan}
-                            labelPlacement="top"
+                            labelPlacement='top'
                             label={index === 0 && "Oui"}
-                            value="vegan"
+                            value='vegan'
                             control={
                               <Radio
                                 color={
@@ -224,8 +224,8 @@ const Questionnaire = ({ users, axiosUpdateUser, message, resetMessage }) => {
                           <FormControlLabel
                             disabled={!toggleUpdateRadioBox.vegan}
                             label={index === 0 && "Non"}
-                            labelPlacement="top"
-                            value="no-vegan"
+                            labelPlacement='top'
+                            value='no-vegan'
                             control={
                               <Radio
                                 color={
@@ -249,7 +249,7 @@ const Questionnaire = ({ users, axiosUpdateUser, message, resetMessage }) => {
           <div style={{ textAlign: "center" }}>
             {toggleUpdateRadioBox.vegan ? (
               <Button
-                variant="contained"
+                variant='contained'
                 className={classes.button}
                 onClick={() => {
                   axiosUpdateUser(checked);
@@ -263,7 +263,7 @@ const Questionnaire = ({ users, axiosUpdateUser, message, resetMessage }) => {
             ) : (
               <Button
                 disabled={dueDate < Date.now() || toggleUpdateRadioBox.present}
-                variant="contained"
+                variant='contained'
                 className={classes.button}
                 onClick={() =>
                   setToggleUpdateRadioBox((prevState) => ({
@@ -279,7 +279,7 @@ const Questionnaire = ({ users, axiosUpdateUser, message, resetMessage }) => {
       </Collapse>
 
       {/*....................TEXT UNDER LIST....................*/}
-      <Typography style={{ margin: "8px auto" }} align="center" variant="body2">
+      <Typography style={{ margin: "8px auto" }} align='center' variant='body2'>
         Vous pouvez répondre jusqu'au <b>01/03/2022</b>
       </Typography>
     </div>
