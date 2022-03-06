@@ -148,7 +148,7 @@ const Questionnaire = ({ users, axiosUpdateUser, message, resetMessage }) => {
                   present: false,
                 }));
               }}>
-              Valider
+              Cliquez ici pour valider
             </Button>
           ) : (
             <Button
@@ -161,7 +161,7 @@ const Questionnaire = ({ users, axiosUpdateUser, message, resetMessage }) => {
                   present: true,
                 }))
               }>
-              Mettre à jour
+              Cliquer ici pour modifier
             </Button>
           )}
         </div>
@@ -258,7 +258,7 @@ const Questionnaire = ({ users, axiosUpdateUser, message, resetMessage }) => {
                     vegan: false,
                   }));
                 }}>
-                Valider
+                Cliquez ici pour valider
               </Button>
             ) : (
               <Button
@@ -271,7 +271,7 @@ const Questionnaire = ({ users, axiosUpdateUser, message, resetMessage }) => {
                     vegan: true,
                   }))
                 }>
-                Mettre à jour
+                Cliquer ici pour modifier
               </Button>
             )}
           </div>
@@ -280,7 +280,7 @@ const Questionnaire = ({ users, axiosUpdateUser, message, resetMessage }) => {
 
       {/*....................TEXT UNDER LIST....................*/}
       <Typography style={{ margin: "8px auto" }} align='center' variant='body2'>
-        Vous pouvez répondre jusqu'au <b>01/03/2022</b>
+        Vous pouvez répondre jusqu'au <b>31/03/2022</b>
       </Typography>
     </div>
   );

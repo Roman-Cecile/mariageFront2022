@@ -179,6 +179,15 @@ const LandingPage = ({ open, setOpen, responsive }) => {
                 <span style={{ fontWeight: "bold" }}>Dimanche:</span> Brunch
                 autour de la piscine du domaine à partir de 11h30
               </li>
+              <li style={{ fontSize: "1.4rem" }}>
+                <span style={{ fontWeight: "bold" }}>Liste de mariage</span> Si
+                vous souhaitez participer à notre liste de mariage, elle est
+                disponible !
+              </li>
+              <li style={{ fontSize: "1.4rem" }}>
+                <span style={{ fontWeight: "bold" }}>Date limite</span>Vous
+                pouvez nous donner une réponse jusqu'au 31 mars 2022
+              </li>
             </ul>
           </div>
         </Fade>
